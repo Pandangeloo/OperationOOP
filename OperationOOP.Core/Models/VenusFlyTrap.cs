@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Models
 {
-    internal class VenusFlyTrap : Plant , INeedMeat
+    public class VenusFlyTrap : Plant , INeedMeat
     {
         int Id { get; set; }
         string Name { get; set; }

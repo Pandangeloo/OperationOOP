@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    internal interface Interface1
+    internal interface ILovePruning
+
     {
+        public DateTime LastPruned { get; set; }
     }
 }
