@@ -8,5 +8,6 @@ namespace OperationOOP.Core.Interfaces
 {
     internal interface ILoveFire
     {
+        Hello
     }
 }
