@@ -1,12 +1,13 @@
-﻿using System;
+﻿using OperationOOP.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OperationOOP.Core.Interfaces
+namespace OperationOOP.Core.Models
 {
-    public class IPlant
+    public class SpiderPlant : Plant , INeedHanging
     {
         public int Id { get; set; }
         public string Name { get; set; }

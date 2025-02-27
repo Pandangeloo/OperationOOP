@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Models
 {
-    public class Orchid : Plant
+    internal class Passionflower : Plant , INeedClimbing
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Species { get; set; }
-        public int AgeYears { get; set; }
-
+        int Id { get; set; }
+        string Name { get; set; }
+        string Species { get; set; }
+        int AgeYears { get; set; }
     }
 }

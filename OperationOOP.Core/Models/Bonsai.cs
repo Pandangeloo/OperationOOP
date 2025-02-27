@@ -1,10 +1,14 @@
+using OperationOOP.Core.Interfaces;
+
 namespace OperationOOP.Core.Models;
-public class Bonsai
+public class Bonsai : Plant , IPrunable
 {
     public int Id { get; set; }
     public string Name { get; set; }
     public string Species { get; set; }
     public int AgeYears { get; set; }
+
+
     public DateTime LastWatered { get; set; }
     public DateTime LastPruned { get; set; }
     public BonsaiStyle Style { get; set; }
