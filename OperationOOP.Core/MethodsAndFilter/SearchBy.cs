@@ -8,5 +8,8 @@ namespace OperationOOP.Core.MethodsAndFilter
 {
     internal class SearchBy
     {
+
+        //Här ska jag Implementera en eller flera metoder med enklare algoritmik
+
     }
 }
