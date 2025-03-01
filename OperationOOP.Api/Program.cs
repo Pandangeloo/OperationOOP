@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Options;
 using OperationOOP.Api.Endpoints;
 using OperationOOP.Core.Data;
+using OperationOOP.Core.Interfaces;
+using OperationOOP.Core.MethodsAndFilter;
 
 namespace OperationOOP.Api
 {
@@ -23,6 +25,7 @@ namespace OperationOOP.Api
             });
 
             builder.Services.AddSingleton<IDatabase, Database>();
+            builder.Services.AddSingleton<IPlantService, PlantService>();
 
             var app = builder.Build();
 
