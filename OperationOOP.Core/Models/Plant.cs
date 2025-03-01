@@ -12,6 +12,9 @@ namespace OperationOOP.Core.Models
         string Name { get; set; }
         string Species { get; set; }
         int AgeYears { get; set; }
+        DateTime LastWatered { get; set; }
+
+
 
 
         public enum CareLevel

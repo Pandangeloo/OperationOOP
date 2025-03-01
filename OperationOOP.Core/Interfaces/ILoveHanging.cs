@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    internal interface INeedHanging
+    public interface ILoveHanging
     {
+
+        void HangFrom(HangingLocation location);
+
     }
+
+    public enum HangingLocation
+    {
+        Window,
+        Wall, 
+        Ceiling,
+        Shelf,
+        Balcony        
+    }
+
 }

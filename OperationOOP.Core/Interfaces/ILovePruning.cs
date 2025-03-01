@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    internal interface ILovePruning
+    public interface ILovePruning
 
     {
-        public DateTime LastPruned { get; set; }
+        DateTime LastPruned { get; set; }
+        void ChangeStyle(BonsaiStyle bonsaiStyle);
     }
+
+
+    public enum BonsaiStyle
+    {
+        Chokkan,    // Formal Upright
+        Moyogi,     // Informal Upright
+        Shakan,     // Slanting
+        Kengai,     // Cascade
+        HanKengai   // Semi-cascade
+    }
+
 }
