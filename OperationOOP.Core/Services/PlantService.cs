@@ -27,12 +27,6 @@ namespace OperationOOP.Core.MethodsAndFilter
             return _database.Plants.Where(p => p.CareLevel == level).ToList();
         }
 
-     
-        public List<Plant> FilterBySpecies(string species)
-        {
-            return _database.Plants.Where(p => p.Species == species).ToList();
-        }
-
         public List<Plant> GetPlantsNeedingWatering(int days)
         {
             DateTime needsWater = DateTime.Now.AddDays(-days);
@@ -47,7 +41,7 @@ namespace OperationOOP.Core.MethodsAndFilter
 
         public List<Plant> SortByName()
         {
-            return _database.Plants.OrderByDescending(p => p.Name).ToList();
+            return _database.Plants.OrderByDescending(p => p.PlantName).ToList();
         }
     }
 }

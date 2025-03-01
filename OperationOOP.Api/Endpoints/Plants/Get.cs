@@ -1,9 +1,9 @@
 ﻿namespace OperationOOP.Api.Endpoints;
-public class GetBonsai : IEndpoint
+public class GetPlant : IEndpoint
 {
     public static void MapEndpoint(IEndpointRouteBuilder app) => app
-        .MapGet("/bonsais/{id}", Handle)
-        .WithSummary("Bonsai trees");
+        .MapGet("/plants/{id}", Handle)
+        .WithSummary("Plant Id");
 
     public record Request(int Id);
 
@@ -11,30 +11,25 @@ public class GetBonsai : IEndpoint
         int Id,
         string Type,
         string PlantName,
-        string Species,
         string Location,
         int AgeYears,
         DateTime LastWatered,
-        DateTime LastPruned,
-        BonsaiStyle Style,
         CareLevel CareLevel
     );
 
     private static Response Handle([AsParameters] Request request, IDatabase db)
     {
-        var bonsai = db.Bonsais.Find(bonsai => bonsai.Id == request.Id);
+        var plant = db.Plants.Find(plant => plant.Id == request.Id);
 
-        // map bonsai to response dto
         var response = new Response(
-            Id: bonsai.Id,
-            Name: bonsai.Name,
-            Species: bonsai.Species,
-            AgeYears: bonsai.AgeYears,
-            LastWatered: bonsai.LastWatered,
-            LastPruned: bonsai.LastPruned,
-            Style: bonsai.Style,
-            CareLevel: bonsai.CareLevel
-            );
+                 Id: plant.Id,
+                 Type: plant.Type,  
+                 PlantName: plant.PlantName,
+                 Location: plant.Location,  
+                 AgeYears: plant.AgeYears,
+                 LastWatered: plant.LastWatered,
+                 CareLevel: plant.CareLevel
+             );
 
         return response;
     }

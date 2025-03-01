@@ -1,9 +1,11 @@
 
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.Extensions.Options;
 using OperationOOP.Api.Endpoints;
 using OperationOOP.Core.Data;
 using OperationOOP.Core.Interfaces;
 using OperationOOP.Core.MethodsAndFilter;
+using System.Text.Json.Serialization;
 
 namespace OperationOOP.Api
 {
@@ -19,13 +21,19 @@ namespace OperationOOP.Api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(options =>
-            {
+            {   
+                
                 options.CustomSchemaIds(type => type.FullName?.Replace('+', '.'));
                 options.InferSecuritySchemes();
+                
             });
 
             builder.Services.AddSingleton<IDatabase, Database>();
             builder.Services.AddSingleton<IPlantService, PlantService>();
+            builder.Services.Configure<JsonOptions>(options =>
+            {
+                options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
 
             var app = builder.Build();
 
