@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    internal interface INeedMeat
+    public interface ILoveMeat
     {
+        void Feed(string prey);
+
     }
 }

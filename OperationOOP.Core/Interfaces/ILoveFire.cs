@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    internal interface ILoveFire
+    public interface ILoveFire
     {
+        void FireSeeds(int temperatureC);
     }
 }

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    internal interface Isomething
+    public interface ILovePruning
+
     {
+        void Prune();
+        
     }
+
+
+   
 }

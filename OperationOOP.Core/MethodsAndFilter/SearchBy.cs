@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OperationOOP.Core.Interfaces
+namespace OperationOOP.Core.MethodsAndFilter
 {
-    internal interface INeedHanging
+    internal class SearchBy
     {
     }
 }

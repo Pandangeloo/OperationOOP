@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Models
 {
-    internal class Passionflower : Plant , INeedClimbing
+    public class Passionflower : Plant , ILoveClimbing
     {
-        int Id { get; set; }
-        string Name { get; set; }
-        string Species { get; set; }
-        int AgeYears { get; set; }
+      
+
+        public void Climb(string supportType)
+        {
+            Console.WriteLine($"{Name}n behöver få slingra sig på en {supportType}"); 
+        }
     }
 }

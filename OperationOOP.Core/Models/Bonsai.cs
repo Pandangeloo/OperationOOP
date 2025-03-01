@@ -1,18 +1,18 @@
 using OperationOOP.Core.Interfaces;
 
 namespace OperationOOP.Core.Models;
-public class Bonsai : Plant , IPrunable
+public class Bonsai : Plant , ILovePruning
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Species { get; set; }
-    public int AgeYears { get; set; }
-
-
-    public DateTime LastWatered { get; set; }
-    public DateTime LastPruned { get; set; }
+                
     public BonsaiStyle Style { get; set; }
-    public CareLevel CareLevel { get; set; }
+    public DateTime LastPruned {  get; set; }
+
+    public void Prune()
+    {
+        Console.WriteLine($"Senast beskuren: {LastPruned}");
+        LastPruned = DateTime.Now;
+        Console.WriteLine($"Den har nu blivit beskuren: {LastPruned}");
+    }
 }
 
 public enum BonsaiStyle
@@ -24,10 +24,6 @@ public enum BonsaiStyle
     HanKengai   // Semi-cascade
 }
 
-public enum CareLevel
-{
-    Beginner,
-    Intermediate,
-    Advanced,
-    Master
-} 
+
+
+

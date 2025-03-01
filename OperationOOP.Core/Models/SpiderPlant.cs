@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Models
 {
-    public class SpiderPlant : Plant , INeedHanging
+    public class SpiderPlant : Plant , ILoveHanging
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Species { get; set; }
-        public int AgeYears { get; set; }
-
+        
+        public void HangFrom(HangingLocation location)
+        {
+            Console.WriteLine($"{Name}n hänger ifrån {location}");
+        }
     }
 }

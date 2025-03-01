@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Interfaces
 {
-    internal interface Interface1
+    public interface ILoveClimbing
     {
+
+        void Climb(string supportType);
+
     }
 }

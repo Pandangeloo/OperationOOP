@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Models
 {
-    internal class VenusFlyTrap : Plant , INeedMeat
+    public class VenusFlyTrap : Plant , ILoveMeat
     {
-        int Id { get; set; }
-        string Name { get; set; }
-        string Species { get; set; }
-        int AgeYears { get; set; }
+    public void Feed(string prey)
+        {
+            Console.WriteLine($"{Name}n behöver få äta på en {prey}");
+        }
     }
 }

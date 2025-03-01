@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace OperationOOP.Core.Models
 {
-    internal class Class1
+    public abstract class Plant
     {
-    }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Species { get; set; }
+        public int AgeYears { get; set; }
+        public DateTime LastWatered { get; set; }
+        public CareLevel CareLevel { get; set; }
+       
+    } 
+    public enum CareLevel
+        {
+            Beginner,
+            Intermediate,
+            Advanced,
+            Master
+        }
 }
