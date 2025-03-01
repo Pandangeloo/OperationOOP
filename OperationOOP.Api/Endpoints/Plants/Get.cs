@@ -9,8 +9,10 @@ public class GetBonsai : IEndpoint
 
     public record Response(
         int Id,
-        string Name,
+        string Type,
+        string PlantName,
         string Species,
+        string Location,
         int AgeYears,
         DateTime LastWatered,
         DateTime LastPruned,
