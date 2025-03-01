@@ -4,15 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OperationOOP.Core.Interfaces
+namespace OperationOOP.Core.MethodsAndFilter
 {
-    public interface ILovePruning
-
+    internal class SearchBy
     {
-        void Prune();
-        
     }
-
-
-   
 }

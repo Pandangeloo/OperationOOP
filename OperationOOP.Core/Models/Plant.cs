@@ -8,21 +8,19 @@ namespace OperationOOP.Core.Models
 {
     public abstract class Plant
     {
-        int Id { get; set; }
-        string Name { get; set; }
-        string Species { get; set; }
-        int AgeYears { get; set; }
-        DateTime LastWatered { get; set; }
-
-
-
-
-        public enum CareLevel
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Species { get; set; }
+        public int AgeYears { get; set; }
+        public DateTime LastWatered { get; set; }
+        public CareLevel CareLevel { get; set; }
+       
+    } 
+    public enum CareLevel
         {
             Beginner,
             Intermediate,
             Advanced,
             Master
         }
-    }
 }
