@@ -6,8 +6,10 @@ public class CreateBonsai : IEndpoint
         .WithSummary("Bonsai trees");
 
     public record Request(
-        string Name,
+        string Type,
+        string PlantName,
         string Species,
+        string Location,
         int AgeYears,
         DateTime LastWatered,
         DateTime LastPruned,
@@ -23,7 +25,7 @@ public class CreateBonsai : IEndpoint
         bonsai.Id = db.Bonsais.Any()
             ? db.Bonsais.Max(bonsai => bonsai.Id) + 1
             : 1;
-        bonsai.Name = request.Name;
+        bonsai.Name = request.PlantName;
         bonsai.Species = request.Species;
         bonsai.AgeYears = request.AgeYears;
         bonsai.LastWatered = request.LastWatered;

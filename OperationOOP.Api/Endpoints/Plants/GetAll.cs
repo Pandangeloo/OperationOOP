@@ -9,6 +9,7 @@ public class GetAllBonsais : IEndpoint
     // Request and Response types
     public record Response(
         int Id,
+        string Type,
         string Name,
         DateTime LastWatered,
         DateTime LastPruned
