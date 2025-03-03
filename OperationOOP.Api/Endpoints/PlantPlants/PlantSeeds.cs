@@ -4,7 +4,7 @@
     {
         // Mapping för /plants/seed
         public static void MapEndpoint(IEndpointRouteBuilder app) => app
-            .MapPost("/plants/seed", Handle)
+            .MapPost("/plants/AddDemoPlants", Handle)
             .WithSummary("Seed test plants with random names, locations, and care levels.");
 
         private static IResult Handle(IDatabase db)
@@ -14,7 +14,7 @@
                 return Results.Ok("DemoPlants already exsists.");
             }
 
-            var firstNames = new[] { "Bella", "Charlie", "Luna", "Max", "Milo", "Zara", "Oliver", "Ella", "Maya", "Leo" };
+            var firstNames = new[] { "Lily", "Violetta", "Dahlia", "Astra", "Aspen", "Clemens", "Basil", "Bella", "Charlie", "Luna", "Max", "Milo", "Zara", "Oliver", "Ella", "Maya", "Leo" , "Jan-Åke", "Maj-Lis", "Britta" , "Bosse", "Anakonda", "Vissla", "Mårran", "Greger"};
             var locations = new[] { "Living Room", "Kitchen", "Bedroom", "Office", "Garden", "Hallway", "Patio" };
 
             var testPlants = new List<(string Type, CareLevel CareLevel)>
@@ -35,10 +35,10 @@
                 {
                     var request = new CreatePlant.Request(
                         Type: plant.Type,
-                        PlantName: $"{plant.Type} - {firstNames[random.Next(firstNames.Length)]} {random.Next(1, 40)}",
+                        PlantName: $"{firstNames[random.Next(firstNames.Length)]}",
                         Location: locations[random.Next(locations.Length)],
                         AgeYears: random.Next(1, 10),
-                        LastWatered: DateTime.Now.AddDays(-random.Next(1, 30)),
+                        LastWatered: DateTime.Now.AddDays(-random.Next(1, 10)),
                         CareLevel: plant.CareLevel,
                         Style: plant.Type == "Bonsai" ? BonsaiStyle.Moyogi : null,
                         LastPruned: plant.Type == "Bonsai" ? DateTime.Now.AddDays(-random.Next(1, 30)) : null

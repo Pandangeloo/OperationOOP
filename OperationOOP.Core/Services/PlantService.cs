@@ -41,7 +41,9 @@ namespace OperationOOP.Core.MethodsAndFilter
 
         public List<Plant> SortByName()
         {
-            return _database.Plants.OrderByDescending(p => p.PlantName).ToList();
+            return _database.Plants.OrderBy(p => p.PlantName).ToList();
         }
+
+
     }
 }
