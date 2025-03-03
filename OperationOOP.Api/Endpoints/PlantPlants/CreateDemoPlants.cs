@@ -1,6 +1,6 @@
 ﻿namespace OperationOOP.Api.Endpoints
 {
-    public class SeedPlants : IEndpoint
+    public class CreateDemoPlants : IEndpoint
     {
         // Mapping för /plants/seed
         public static void MapEndpoint(IEndpointRouteBuilder app) => app
@@ -19,8 +19,8 @@
 
             var testPlants = new List<(string Type, CareLevel CareLevel)>
     {
-        ("Banksia", CareLevel.Intermediate),
-        ("Bonsai", CareLevel.Advanced),
+        ("Banksia", CareLevel.Master),
+        ("Bonsai", CareLevel.Master),
         ("Monstera", CareLevel.Beginner),
         ("Passionflower", CareLevel.Intermediate),
         ("Spiderplant", CareLevel.Beginner),

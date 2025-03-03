@@ -11,8 +11,11 @@ public class GetAllPlants : IEndpoint
         int Id,
         string Type,
         string PlantName,
-        DateTime LastWatered
-        
+        string Location,
+        int AgeYears,
+        string LastWatered,
+        string CareLevel
+
     );
 
     //Logic
@@ -23,7 +26,10 @@ public class GetAllPlants : IEndpoint
                 Id: item.Id,
                 Type: item.Type,
                 PlantName: item.PlantName,
-                LastWatered: item.LastWatered
+                Location: item.Location,
+                AgeYears: item.AgeYears,
+                LastWatered: item.LastWatered.ToString("d"),
+                CareLevel : item.CareLevel.ToString()
                 
             )).ToList();
     }

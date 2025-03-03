@@ -5,7 +5,7 @@ namespace OperationOOP.Api.Endpoints.Filtering
     public class NeedsWater : IEndpoint
         {
             public static void MapEndpoint(IEndpointRouteBuilder app) => app
-         .MapGet("/plants/needsWater", Handle)
+         .MapGet("/plants/filter/needsWater", Handle)
          .WithSummary("Get to know wich plants needs water first.");
 
 
