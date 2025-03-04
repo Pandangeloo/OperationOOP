@@ -42,7 +42,9 @@ namespace OperationOOP.Api
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                        c.DefaultModelsExpandDepth(-1) //Remove visibility on schemas in swagger ui
+                    );
             }
 
             app.UseHttpsRedirection();
