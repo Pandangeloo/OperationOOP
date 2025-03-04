@@ -1,29 +1,36 @@
 ﻿namespace OperationOOP.Api.Endpoints;
-public class GetAllBonsais : IEndpoint
+public class GetAllPlants : IEndpoint
 {
     // Mapping
     public static void MapEndpoint(IEndpointRouteBuilder app) => app
-        .MapGet("/bonsais", Handle)
-        .WithSummary("Bonsai trees");
+        .MapGet("/plants", Handle)
+        .WithSummary("Important Info about the plants.");
 
     // Request and Response types
     public record Response(
         int Id,
         string Type,
-        string Name,
-        DateTime LastWatered,
-        DateTime LastPruned
+        string PlantName,
+        string Location,
+        int AgeYears,
+        string LastWatered,
+        string CareLevel
+
     );
 
     //Logic
     private static List<Response> Handle(IDatabase db)
     {
-        return db.Bonsais
+        return db.Plants
             .Select(item => new Response(
                 Id: item.Id,
-                Name: item.Name,
-                LastWatered: item.LastWatered,
-                LastPruned: item.LastPruned
+                Type: item.Type,
+                PlantName: item.PlantName,
+                Location: item.Location,
+                AgeYears: item.AgeYears,
+                LastWatered: item.LastWatered.ToString("d"),
+                CareLevel : item.CareLevel.ToString()
+                
             )).ToList();
     }
 }

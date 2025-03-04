@@ -1,41 +1,102 @@
 ﻿namespace OperationOOP.Api.Endpoints;
-public class CreateBonsai : IEndpoint
+public class CreatePlant : IEndpoint
 {
     public static void MapEndpoint(IEndpointRouteBuilder app) => app
-        .MapPost("/bonsais", Handle)
-        .WithSummary("Bonsai trees");
+        .MapPost("/plants", Handle)
+        .WithSummary("Create new plant");
+        
 
     public record Request(
         string Type,
         string PlantName,
-        string Species,
         string Location,
         int AgeYears,
-        DateTime LastWatered,
-        DateTime LastPruned,
-        BonsaiStyle Style,
-        CareLevel CareLevel
+        DateTime LastWatered,        
+        CareLevel CareLevel,
+
+        BonsaiStyle? Style,
+        DateTime? LastPruned
+        
+
         );
     public record Response(int id);
 
-    private static Ok<Response> Handle(Request request, IDatabase db)
+    public static IResult Handle(Request request, IDatabase db)
     {
-        var bonsai = new Bonsai();
+        Plant? plant = request.Type.ToLower() switch
+        {
+            "banksia" => new Banksia
+            {
+                Type = request.Type,
+                PlantName = request.PlantName,
+                Location = request.Location,
+                AgeYears = request.AgeYears,
+                LastWatered = request.LastWatered,
+                CareLevel = request.CareLevel
+            },
+            "bonsai" => new Bonsai
+            {
+                Type = request.Type,
+                PlantName = request.PlantName,
+                Location = request.Location,
+                AgeYears = request.AgeYears,
+                LastWatered = request.LastWatered,
+                CareLevel = request.CareLevel,
+                Style = request.Style ?? BonsaiStyle.Moyogi, 
+                LastPruned = request.LastPruned ?? DateTime.Now,
+            },
+            "monstera" => new Monstera
+            {
+                Type = request.Type,
+                PlantName = request.PlantName,                
+                Location = request.Location,
+                AgeYears = request.AgeYears,
+                LastWatered = request.LastWatered,
+                CareLevel = request.CareLevel
+            },
+            "passionflower" => new Passionflower
+            {
+                Type = request.Type,
+                PlantName = request.PlantName,                
+                Location = request.Location,
+                AgeYears = request.AgeYears,
+                LastWatered = request.LastWatered,
+                CareLevel = request.CareLevel
+            },
+            "spiderplant" => new SpiderPlant
+            {
+                Type = request.Type,
+                PlantName = request.PlantName,                
+                Location = request.Location,
+                AgeYears = request.AgeYears,
+                LastWatered = request.LastWatered,
+                CareLevel = request.CareLevel
+            },
+            "venusflytrap" => new VenusFlyTrap
+            {
+                Type = request.Type,
+                PlantName = request.PlantName,                
+                Location = request.Location,
+                AgeYears = request.AgeYears,
+                LastWatered = request.LastWatered,
+                CareLevel = request.CareLevel
+            },
+            _ => null 
+        };
 
-        bonsai.Id = db.Bonsais.Any()
-            ? db.Bonsais.Max(bonsai => bonsai.Id) + 1
+        
+        if (plant == null)
+        {
+            return Results.BadRequest(new { message = "Invalid plant type specified. Valid types are: Banksia, Bonsai, Monstera, Passionflower, Spiderplant, VenusFlytrap." });
+        }
+
+        plant.Id = db.Plants.Any()
+            ? db.Plants.Max(plant => plant.Id) + 1
             : 1;
-        bonsai.Name = request.PlantName;
-        bonsai.Species = request.Species;
-        bonsai.AgeYears = request.AgeYears;
-        bonsai.LastWatered = request.LastWatered;
-        bonsai.LastPruned = request.LastPruned;
-        bonsai.Style = request.Style;
-        bonsai.CareLevel = request.CareLevel;
+        
+        db.Plants.Add(plant);
 
-        db.Bonsais.Add(bonsai);
-
-        return TypedResults.Ok(new Response(bonsai.Id));
+        return TypedResults.Ok(new Response(plant.Id));
     }
 }
 

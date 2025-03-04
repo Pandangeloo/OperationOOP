@@ -11,7 +11,6 @@ namespace OperationOOP.Core.Interfaces
     public interface IPlantService
     {
         List<Plant> FilterByCareLevel(CareLevel level);
-        List<Plant> FilterBySpecies(string species);
         List<Plant> SortByAge();
         List<Plant> SortByName();
         List<Plant> GetPlantsNeedingWatering(int days);

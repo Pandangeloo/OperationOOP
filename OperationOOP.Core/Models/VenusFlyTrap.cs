@@ -11,7 +11,7 @@ namespace OperationOOP.Core.Models
     {
     public void Feed(string prey)
         {
-            Console.WriteLine($"{Name}n behöver få äta på en {prey}");
+            Console.WriteLine($"Denna köttätande växt behöver få äta på en {prey}");
         }
     }
 }

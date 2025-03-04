@@ -12,7 +12,7 @@ namespace OperationOOP.Core.Models
 
      public void Climb(string supportType)
         {
-            Console.WriteLine($"{Name}n behöver få slingra sig på en {supportType}");
+            Console.WriteLine($"Monsteran behöver få slingra sig på en {supportType}");
         }
     }
 }

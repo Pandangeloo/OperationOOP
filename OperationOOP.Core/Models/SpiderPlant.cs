@@ -12,7 +12,7 @@ namespace OperationOOP.Core.Models
         
         public void HangFrom(HangingLocation location)
         {
-            Console.WriteLine($"{Name}n hänger ifrån {location}");
+            Console.WriteLine($"Ampelliljan hänger ifrån {location}");
         }
     }
 }
